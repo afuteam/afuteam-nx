@@ -39,3 +39,9 @@ testem.log
 Thumbs.db
 
 .nx/cache
+
+
+# 敏感
+personal.ts
+gitLabConfigs.ts
+allProjects.json

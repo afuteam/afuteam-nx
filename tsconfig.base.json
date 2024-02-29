@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@afuteam-nx/my-plugin": ["my-plugin/src/index.ts"],
-      "@afuteam-nx/plugin": ["plugin/src/index.ts"]
+      "@afuteam-nx/plugin": ["plugin/src/index.ts"],
+      "@afuteam-nx/plugin-fetch-repos": ["plugin/fetch-repos/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

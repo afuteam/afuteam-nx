@@ -63,6 +63,13 @@
       "options": {
         "log": "Hello my echo eyea"
       }
+    },
+
+    "fetch-repos": {
+      "executor": "@afuteam-nx/plugin-fetch-repos:run",
+      "options": {
+        "repos": ["https://github.com/nrwl/nx.git"]
+      }
     }
   },
   "tags": []
