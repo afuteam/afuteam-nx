@@ -71,6 +71,15 @@
       "options": {
         "note": "基于node-schedule 的定时任务"
       }
+    },
+
+    "exec-eslint": {
+      "executor": "@afuteam-nx/plugin-exec-eslint:run",
+      // TODO 暂时关掉 调试lint的代码
+      // "dependsOn": ["fetch-repos"],
+      "options": {
+        "note": "exec-eslint 需要在 fetch-repos 之后执行"
+      }
     }
   },
   "tags": []

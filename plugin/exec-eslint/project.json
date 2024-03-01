@@ -1,0 +1,45 @@
+{
+  "name": "plugin-exec-eslint",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "plugin/exec-eslint/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/plugin/exec-eslint",
+        "main": "plugin/exec-eslint/src/index.ts",
+        "tsConfig": "plugin/exec-eslint/tsconfig.lib.json",
+        "assets": [
+          "plugin/exec-eslint/*.md",
+          {
+            "input": "./plugin/exec-eslint/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/exec-eslint/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/exec-eslint",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./plugin/exec-eslint",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs plugin-exec-eslint {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    }
+  },
+  "tags": []
+}
