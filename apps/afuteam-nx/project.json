@@ -52,12 +52,6 @@
       }
     },
 
-    "echo": {
-      "executor": "@afuteam-nx/plugin:echo",
-      "options": {
-        "textToEcho": "Hello eyea"
-      }
-    },
     "my-echo": {
       "executor": "@afuteam-nx/my-plugin:run",
       "options": {
