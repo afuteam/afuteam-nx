@@ -1,16 +1,7 @@
-// import { RunExecutorSchema } from './schema';
-
-// export default async function runExecutor(options: RunExecutorSchema) {
-//   console.log('eyea  Executor ran for Run', options);
-//   return {
-//     success: true,
-//   };
-// }
+import { RunExecutorSchema } from './schema';
 
 import axios from "axios";
-import * as fs from "fs"
-import PERSONALINFO from "./configs/personal";
-import GitLabConfigs from "./configs/gitLabConfigs";
+import Tools from "./utils/index.js"
 
 interface Project {
   id: number;
@@ -21,18 +12,24 @@ interface SubGroup {
   id: number;
 }
 
+export default async function runExecutor(options: RunExecutorSchema) {
+  const {
+    accessToken,
+    resultPath,
+    gitLabBaseUrl,
+    rootGroupId,
+    ignoreGroupIds,
+    ignoreProjectsIds,
+    addRepoIds,
+    per_page = 100
+  } = options
 
-const {
-  gitLabBaseUrl,
-  rootGroupId,
-  ignoreGroupIds,
-  ignoreProjectsIds,
-  addRepoIds,
-  per_page,
-} = GitLabConfigs;
+  if(!accessToken || !resultPath || !gitLabBaseUrl || !rootGroupId) {
+    console.error("\n请仔细校验配置的参数\n")
+    return false
+  }
 
-const { accessToken } = PERSONALINFO;
-
+  // 定义函数
 // 获取指定 Group ID 下的所有 Projects
 async function getProjects(groupId: number, page = 1): Promise<Project[]> {
 
@@ -160,14 +157,11 @@ const main = async () => {
       (item) => !ignoreProjectsIds.includes(item.id)
     );
 
-    fs.writeFileSync(
-      "allProjects.json",
-      JSON.stringify(filteredResult, null, 2)
+    console.log(
+      `\n${new Date()} \n当前使用的token是 ${accessToken}\n`
     );
 
-    console.log(
-      `\n${new Date()} \n当前使用的token是 ${accessToken}\n\n共统计有 ${filteredResult.length} 个项目，结果已导出到 allProjects.json \n`
-    );
+    Tools.writeRes2SomePath('allProjects.json', filteredResult, resultPath)
 
     return true
   } catch (error) {
@@ -176,10 +170,10 @@ const main = async () => {
   }
 }
 
-export default async function runExecutor() {
+
+  // 定义函数结束
 
   const result = await main()
-
   return {
     success: result,
   };

@@ -1,0 +1,45 @@
+{
+  "name": "plugin-add-eslint-type",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "plugin/add-eslint-type/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/plugin/add-eslint-type",
+        "main": "plugin/add-eslint-type/src/index.ts",
+        "tsConfig": "plugin/add-eslint-type/tsconfig.lib.json",
+        "assets": [
+          "plugin/add-eslint-type/*.md",
+          {
+            "input": "./plugin/add-eslint-type/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/add-eslint-type/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/add-eslint-type",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./plugin/add-eslint-type",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs plugin-add-eslint-type {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    }
+  },
+  "tags": []
+}

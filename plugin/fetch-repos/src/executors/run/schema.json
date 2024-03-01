@@ -4,6 +4,15 @@
   "title": "Run executor",
   "description": "",
   "type": "object",
-  "properties": {},
+  "properties": {
+    "accessToken": {"type": "string"},
+    "resultPath": {"type": "string"},
+    "gitLabBaseUrl": {"type": "string"},
+    "rootGroupId": {"type": "number"},
+    "ignoreGroupIds": {"type": "array"},
+    "ignoreProjectsIds": {"type": "array"},
+    "addRepoIds": {"type": "array"},
+    "per_page": {"type": "number"}
+  },
   "required": []
 }
