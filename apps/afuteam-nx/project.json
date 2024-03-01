@@ -64,6 +64,13 @@
       "options": {
         "repos": ["https://github.com/nrwl/nx.git"]
       }
+    },
+
+    "node-schedule": {
+      "executor": "@afuteam-nx/plugin-node-schedule:run",
+      "options": {
+        "note": "基于node-schedule 的定时任务"
+      }
     }
   },
   "tags": []
