@@ -4,6 +4,10 @@
   "title": "Run executor",
   "description": "",
   "type": "object",
-  "properties": {},
+  "properties": {
+    "localFileReposWithAFULintTypePath": {"type": "string"},
+    "localAllReposCodePath": {"type": "string"},
+    "resultPath": {"type": "string"},
+  },
   "required": []
 }

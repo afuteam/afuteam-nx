@@ -1,9 +1,6 @@
 
 import * as path from 'path';
 import * as fs from 'fs';
-import PERSONALINFO from "../configs/personal";
-
-const ResDirPath = PERSONALINFO.lintResultPath || '';
 
 function getFormattedDate() {
   const date = new Date();
@@ -17,7 +14,7 @@ function getFormattedDate() {
   return `${year}-${month}-${day}-${hours}-${minutes}`;
 }
 
-function writeRes2SomePath(fileName, data) {
+function writeRes2SomePath(fileName, data, ResDirPath) {
   if(!ResDirPath) {
     console.error('结果路径没有配置，请检查')
     return
@@ -40,9 +37,11 @@ function writeRes2SomePath(fileName, data) {
     filePath,
     JSON.stringify(data, null, 2)
   );
+
+  console.log(`结果已写入到 ${filePath}`);
+
 }
 
 export default {
-  getFormattedDate,
   writeRes2SomePath
 };
