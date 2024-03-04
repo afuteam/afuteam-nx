@@ -4,6 +4,11 @@
   "title": "Run executor",
   "description": "",
   "type": "object",
-  "properties": {},
+  "properties": {
+    "localFileAllReposInfoPath": {"type": "string"},
+    "blackFileList": {"type": "array"},
+    "localFilesAllReposCodePath": {"type": "string"},
+    "resultPath": {"type": "string"},
+  },
   "required": []
 }

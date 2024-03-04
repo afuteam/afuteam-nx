@@ -103,6 +103,9 @@ devDependencies:
   verdaccio:
     specifier: ^5.0.4
     version: 5.29.2(typanion@3.14.0)
+  yamljs:
+    specifier: ^0.3.0
+    version: 0.3.0
 
 packages:
 
@@ -7924,6 +7927,14 @@ packages:
   /yaml@1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
+    dev: true
+
+  /yamljs@0.3.0:
+    resolution: {integrity: sha512-C/FsVVhht4iPQYXOInoxUM/1ELSf9EsgKH34FofQOp6hwCPrW4vG4w5++TED3xRUo8gD7l0P1J1dLlDYzODsTQ==}
+    hasBin: true
+    dependencies:
+      argparse: 1.0.10
+      glob: 7.2.3
     dev: true
 
   /yargs-parser@21.1.1:
