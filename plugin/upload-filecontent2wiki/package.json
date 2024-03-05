@@ -1,5 +1,5 @@
 {
-  "name": "@afuteam-nx/plugin-fetch-remote-code",
+  "name": "@afuteam-nx/plugin-upload-filecontent2wiki",
   "version": "0.0.1",
   "dependencies": {
     "@nx/devkit": "18.0.5",

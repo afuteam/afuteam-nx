@@ -5,8 +5,10 @@
   "description": "",
   "type": "object",
   "properties": {
-    "localFileReposWithRemotePath": {"type": "string"},
-    "localFilesDownLoadPath": {"type": "string"}
+    "accessToken": {"type": "string"},
+    "localJsonfilePath": {"type": "string"},
+    "gitLabBaseUrl": {"type": "string"},
+    "uploadRepoId": {"type": "number"}
   },
   "required": []
 }

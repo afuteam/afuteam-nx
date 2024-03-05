@@ -1,35 +1,35 @@
 {
-  "name": "plugin-fetch-remote-code",
+  "name": "plugin-upload-filecontent2wiki",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "plugin/fetch-remote-code/src",
+  "sourceRoot": "plugin/upload-filecontent2wiki/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/plugin/fetch-remote-code",
-        "main": "plugin/fetch-remote-code/src/index.ts",
-        "tsConfig": "plugin/fetch-remote-code/tsconfig.lib.json",
+        "outputPath": "dist/plugin/upload-filecontent2wiki",
+        "main": "plugin/upload-filecontent2wiki/src/index.ts",
+        "tsConfig": "plugin/upload-filecontent2wiki/tsconfig.lib.json",
         "assets": [
-          "plugin/fetch-remote-code/*.md",
+          "plugin/upload-filecontent2wiki/*.md",
           {
-            "input": "./plugin/fetch-remote-code/src",
+            "input": "./plugin/upload-filecontent2wiki/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./plugin/fetch-remote-code/src",
+            "input": "./plugin/upload-filecontent2wiki/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./plugin/fetch-remote-code",
+            "input": "./plugin/upload-filecontent2wiki",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./plugin/fetch-remote-code",
+            "input": "./plugin/upload-filecontent2wiki",
             "glob": "executors.json",
             "output": "."
           }
@@ -37,7 +37,7 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs plugin-fetch-remote-code {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs plugin-upload-filecontent2wiki {args.ver} {args.tag}",
       "dependsOn": ["build"]
     }
   },
