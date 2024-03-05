@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "Run executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "localFileReposWithRemotePath": {"type": "string"},
+    "localFilesDownLoadPath": {"type": "string"}
+  },
+  "required": []
+}

@@ -1,0 +1,45 @@
+{
+  "name": "plugin-fetch-remote-code",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "plugin/fetch-remote-code/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/plugin/fetch-remote-code",
+        "main": "plugin/fetch-remote-code/src/index.ts",
+        "tsConfig": "plugin/fetch-remote-code/tsconfig.lib.json",
+        "assets": [
+          "plugin/fetch-remote-code/*.md",
+          {
+            "input": "./plugin/fetch-remote-code/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/fetch-remote-code/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/fetch-remote-code",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./plugin/fetch-remote-code",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs plugin-fetch-remote-code {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    }
+  },
+  "tags": []
+}
