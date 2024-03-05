@@ -1,9 +1,0 @@
-{
-  "executors": {
-    "run": {
-      "implementation": "./src/executors/my-executor/executor",
-      "schema": "./src/executors/my-executor/schema.json",
-      "description": "my-executor executor"
-    }
-  }
-}

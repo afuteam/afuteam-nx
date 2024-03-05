@@ -38,6 +38,12 @@ function writeRes2SomePath(fileName, data, ResDirPath) {
     JSON.stringify(data, null, 2)
   );
 
+  // 留一个不含日志的，只更新用
+  fs.writeFileSync(
+    path.join(dirPath, fileName),
+    JSON.stringify(data, null, 2)
+  );
+
   console.log(`结果已写入到 ${filePath}`);
 
 }
