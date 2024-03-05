@@ -52,35 +52,86 @@
       }
     },
 
-    "my-echo": {
-      "executor": "@afuteam-nx/my-plugin:run",
-      "options": {
-        "log": "Hello my echo eyea"
-      }
-    },
-
     "fetch-repos": {
       "executor": "@afuteam-nx/plugin-fetch-repos:run",
       "options": {
-        "repos": ["https://github.com/nrwl/nx.git"]
+        "accessToken": "ufufufff",
+        "resultPath": "/Users/wow/plugin-fetch-repos/",
+        "gitLabBaseUrl": "https://gitlab.com",
+        "rootGroupId": 4203,
+        "ignoreGroupIds": [
+          4599,
+          4671,
+          4959,
+          4998,
+          5215,
+          5373
+        ],
+        "ignoreProjectsIds": [54380694],
+        "addRepoIds": [
+          12349,
+          23946,
+          23945,
+          28420
+        ],
+        "per_page": 100
       }
     },
 
-    "node-schedule": {
-      "executor": "@afuteam-nx/plugin-node-schedule:run",
+    "downloadrepos": {
+      "executor": "@afuteam-nx/plugin-downloadrepos:run",
       "options": {
-        "note": "基于node-schedule 的定时任务"
+        "localFileReposWithRemotePath": "/Users/wow/plugin-fetch-repos/allProjects.json",
+        "localFilesDownLoadPath": "/Users/wow/plugin-download-repos/"
+      }
+    },
+
+    "add-eslint-type": {
+      "executor": "@afuteam-nx/plugin-add-eslint-type:run",
+      // 实际是对本地源码的操作，不依赖。
+      // "dependsOn": ["fetch-repos"],
+      "options": {
+        "localFileAllReposInfoPath": "/Users/wow/plugin-fetch-repos/allProjects.json",
+        "blackFileList": [ "fonts",
+        "images",
+        "css",
+        "build",
+        "dist",
+        "docs",
+        "node_modules",
+        "tests"
+        ],
+        // 这个用原来的，提醒下是要代码仓库下载的code路径的，无依赖down插件
+        // "localFilesAllReposCodePath": "/Users/wangxudong/afu/afu-all-projects",
+        "localFilesAllReposCodePath": "/Users/wow/plugin-download-repos",
+        "resultPath": "/Users/wow/plugin-add-eslint-type/"
       }
     },
 
     "exec-eslint": {
       "executor": "@afuteam-nx/plugin-exec-eslint:run",
-      // TODO 暂时关掉 调试lint的代码
-      // "dependsOn": ["fetch-repos"],
+      // 实际是对本地源码的操作，不依赖。
+      // "dependsOn": ["add-eslint-type"],
       "options": {
-        "note": "exec-eslint 需要在 fetch-repos 之后执行"
+        "localFileReposWithAFULintTypePath": "/Users/wow/plugin-add-eslint-type/allProjectsWithLinType.json",
+        // 这个用原来的，提醒下是要代码仓库下载的code路径的，无依赖down插件
+        // "localAllReposCodePath": "/Users/wangxudong/afu/afu-all-projects",
+        "localAllReposCodePath": "/Users/wow/plugin-download-repos",
+        "resultPath": "/Users/wow/plugin-exec-eslint/"
+      }
+    },
+
+    "upload-filecontent2wiki": {
+      "executor": "@afuteam-nx/plugin-upload-filecontent2wiki:run",
+      "options": {
+        "accessToken": "6sddfdfdafa",
+        "localJsonfilePath": "/jfjfjfjf.json",
+        "gitLabBaseUrl": "https://gitlab.com",
+        "uploadRepoId": 28271
       }
     }
+
+
   },
   "tags": []
 }
