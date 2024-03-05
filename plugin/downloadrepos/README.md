@@ -1,4 +1,4 @@
-# plugin-download-repos
+# plugin-downloadrepos
 
 用于下载远程仓库的插件，支持多仓库。
 
@@ -8,7 +8,7 @@
 ## 安装
 
 ```bash
-pnpm i @afuteam-nx/plugin-download-repos -D
+pnpm i @afuteam-nx/plugin-downloadrepos -D
 ```
 
 ## 配置
@@ -16,7 +16,7 @@ pnpm i @afuteam-nx/plugin-download-repos -D
 # 在 apps/your-app/project.json 中配置
 "targets": {
   "fetch-repos": {
-    "executor": "@afuteam-nx/plugin-download-repos:run",
+    "executor": "@afuteam-nx/plugin-downloadrepos:run",
     "options": {
       "localFileReposWithRemotePath": "本地需要下载的代码仓库清单",
       "localFilesDownLoadPath": "代码下载的本地文件夹地址"
@@ -28,6 +28,6 @@ pnpm i @afuteam-nx/plugin-download-repos -D
 
 ## 使用
 ```bash
-nx run your-app:download-repos
+nx run your-app:downloadrepos
 ```
 

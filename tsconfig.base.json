@@ -20,13 +20,9 @@
       "@afuteam-nx/plugin-add-eslint-type": [
         "plugin/add-eslint-type/src/index.ts"
       ],
-      "@afuteam-nx/plugin-download-repos": [
-        "plugin/download-repos/src/index.ts"
-      ],
+      "@afuteam-nx/plugin-downloadrepos": ["plugin/downloadrepos/src/index.ts"],
       "@afuteam-nx/plugin-exec-eslint": ["plugin/exec-eslint/src/index.ts"],
-      "@afuteam-nx/plugin-fetch-remote-code": [
-        "plugin/fetch-remote-code/src/index.ts"
-      ],
+
       "@afuteam-nx/plugin-fetch-repos": ["plugin/fetch-repos/src/index.ts"],
       "@afuteam-nx/plugin-node-schedule": ["plugin/node-schedule/src/index.ts"]
     }

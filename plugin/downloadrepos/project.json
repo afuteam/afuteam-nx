@@ -1,35 +1,35 @@
 {
-  "name": "plugin-download-repos",
+  "name": "plugin-downloadrepos",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "plugin/download-repos/src",
+  "sourceRoot": "plugin/downloadrepos/src",
   "projectType": "library",
   "targets": {
     "build": {
       "executor": "@nx/js:tsc",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "outputPath": "dist/plugin/download-repos",
-        "main": "plugin/download-repos/src/index.ts",
-        "tsConfig": "plugin/download-repos/tsconfig.lib.json",
+        "outputPath": "dist/plugin/downloadrepos",
+        "main": "plugin/downloadrepos/src/index.ts",
+        "tsConfig": "plugin/downloadrepos/tsconfig.lib.json",
         "assets": [
-          "plugin/download-repos/*.md",
+          "plugin/downloadrepos/*.md",
           {
-            "input": "./plugin/download-repos/src",
+            "input": "./plugin/downloadrepos/src",
             "glob": "**/!(*.ts)",
             "output": "./src"
           },
           {
-            "input": "./plugin/download-repos/src",
+            "input": "./plugin/downloadrepos/src",
             "glob": "**/*.d.ts",
             "output": "./src"
           },
           {
-            "input": "./plugin/download-repos",
+            "input": "./plugin/downloadrepos",
             "glob": "generators.json",
             "output": "."
           },
           {
-            "input": "./plugin/download-repos",
+            "input": "./plugin/downloadrepos",
             "glob": "executors.json",
             "output": "."
           }
@@ -37,7 +37,7 @@
       }
     },
     "publish": {
-      "command": "node tools/scripts/publish.mjs plugin-download-repos {args.ver} {args.tag}",
+      "command": "node tools/scripts/publish.mjs plugin-downloadrepos {args.ver} {args.tag}",
       "dependsOn": ["build"]
     }
   },
