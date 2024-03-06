@@ -8,5 +8,8 @@
     "localFileReposWithRemotePath": {"type": "string"},
     "localFilesDownLoadPath": {"type": "string"}
   },
-  "required": []
+  "required": [
+    "localFileReposWithRemotePath",
+    "localFilesDownLoadPath"
+  ]
 }
