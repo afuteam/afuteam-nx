@@ -10,11 +10,6 @@ export default async function runExecutor(options: RunExecutorSchema) {
   const { accessToken, gitLabBaseUrl, uploadRepoId, localJsonfilePath } =
     options;
 
-  if (!accessToken || !gitLabBaseUrl || !uploadRepoId || !localJsonfilePath) {
-    console.error('\n请仔细校验配置的参数\n');
-    return false;
-  }
-
   async function loadFileList() {
     const data = await fs.promises.readFile(localJsonfilePath, 'utf-8');
     return JSON.parse(data);
@@ -51,7 +46,7 @@ export default async function runExecutor(options: RunExecutorSchema) {
     }
   }
 
-  async function upoadLintRes2Wiki() {
+  async function main() {
     const lintResData = await loadFileList();
 
     // 上传数据
@@ -63,7 +58,7 @@ export default async function runExecutor(options: RunExecutorSchema) {
     }
   }
 
-  await upoadLintRes2Wiki();
+  await main();
 
   return {
     success: true,

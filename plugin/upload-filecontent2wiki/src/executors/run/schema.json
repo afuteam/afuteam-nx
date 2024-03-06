@@ -10,5 +10,10 @@
     "gitLabBaseUrl": {"type": "string"},
     "uploadRepoId": {"type": "number"}
   },
-  "required": []
+  "required": [
+    "accessToken",
+    "localJsonfilePath",
+    "gitLabBaseUrl",
+    "uploadRepoId"
+  ]
 }

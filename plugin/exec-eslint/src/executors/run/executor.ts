@@ -226,7 +226,7 @@ export default async function runExecutor(options: RunExecutorSchema) {
     return alllintresult;
   }
 
-  async function lintAllProject() {
+  async function main() {
 
     const allProjects = await loadFileList();
 
@@ -265,19 +265,7 @@ export default async function runExecutor(options: RunExecutorSchema) {
     }
   }
 
-
-
-
-
-
-
-
-
-
-
-
-
-  await lintAllProject();
+  await main();
   return {
     success: true,
   };
