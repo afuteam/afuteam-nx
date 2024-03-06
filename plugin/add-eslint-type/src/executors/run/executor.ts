@@ -25,15 +25,6 @@ export default async function runExecutor(options: RunExecutorSchema) {
     resultPath,
   } = options;
 
-  if (
-    !localFileAllReposInfoPath ||
-    !localFilesAllReposCodePath ||
-    !resultPath
-  ) {
-    console.error('\n请仔细校验配置的参数\n');
-    return false;
-  }
-
   async function loadFileList() {
     const data = await fs.promises.readFile(localFileAllReposInfoPath, 'utf-8');
     return JSON.parse(data);

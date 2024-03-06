@@ -8,7 +8,11 @@
     "localFileAllReposInfoPath": {"type": "string"},
     "blackFileList": {"type": "array"},
     "localFilesAllReposCodePath": {"type": "string"},
-    "resultPath": {"type": "string"},
+    "resultPath": {"type": "string"}
   },
-  "required": []
+  "required": [
+    "localFileAllReposInfoPath",
+    "localFilesAllReposCodePath",
+    "resultPath"
+  ]
 }
