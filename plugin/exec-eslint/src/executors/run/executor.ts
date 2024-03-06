@@ -6,15 +6,9 @@ import { execSync } from "child_process";
 import Tools from "./utils/index.js"
 
 export default async function runExecutor(options: RunExecutorSchema) {
-  console.log('执行eslint了哦\n', options);
+  console.log('\n@afuteam-nx/plugin-exec-eslint插件开始执行\n', options);
 
   const { localFileReposWithAFULintTypePath, localAllReposCodePath, resultPath } = options
-
-
-  if (!localFileReposWithAFULintTypePath || !localAllReposCodePath || !resultPath) {
-    console.error('\n请仔细校验配置的参数\n');
-    return false;
-  }
 
   async function loadFileList() {
     const data = await fs.promises.readFile(
@@ -39,12 +33,16 @@ export default async function runExecutor(options: RunExecutorSchema) {
       `npx @afuteam/eslint-plugin-fe@latest --type=${lintType} --path=${lintPath}`,
       { encoding: "utf8", maxBuffer: 1024 * 1024 * 10 }
     );
-    console.log(res);
-    const errorsMatch = res.match(/Total errors:\s*(\d+)/);
-    const warningsMatch = res.match(/Total warnings:\s*(\d+)/);
-    const totalBlankLines = res.match(/Total totalBlankLines:\s*(\d+)/) || 0;
-    const totalCommentLines = res.match(/Total totalCommentLines:\s*(\d+)/) || 0;
-    const totalCodeLines = res.match(/Total totalCodeLines:\s*(\d+)/) || 0;
+
+    // 受nx的影响 输出中包含了一些终端颜色代码 表现为 \u001b 开头的转义序列
+    // eslint-disable-next-line no-control-regex
+    const cleanRes = res.replace(/\u001b\[\d+m/g, "");
+
+    const errorsMatch = cleanRes.match(/Total errors:\s*(\d+)/);
+    const warningsMatch = cleanRes.match(/Total warnings:\s*(\d+)/);
+    const totalBlankLines = cleanRes.match(/Total totalBlankLines:\s*(\d+)/) || 0;
+    const totalCommentLines = cleanRes.match(/Total totalCommentLines:\s*(\d+)/) || 0;
+    const totalCodeLines = cleanRes.match(/Total totalCodeLines:\s*(\d+)/) || 0;
 
     if (errorsMatch && warningsMatch) {
       lintresult = {
