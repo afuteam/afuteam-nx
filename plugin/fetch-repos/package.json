@@ -1,10 +1,11 @@
 {
   "name": "@afuteam-nx/plugin-fetch-repos",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "dependencies": {
     "@nx/devkit": "18.0.5",
     "tslib": "^2.3.0"
   },
+  "keywords": ["@afuteam-nx", "plugin", "fetch-repos", "nx", "nx-plugin"],
   "type": "commonjs",
   "main": "./src/index.js",
   "typings": "./src/index.d.ts",

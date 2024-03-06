@@ -14,5 +14,10 @@
     "addRepoIds": {"type": "array"},
     "per_page": {"type": "number"}
   },
-  "required": []
+  "required": [
+    "accessToken",
+    "resultPath",
+    "gitLabBaseUrl",
+    "rootGroupId"
+  ]
 }
