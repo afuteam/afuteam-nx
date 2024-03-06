@@ -15,11 +15,18 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@afuteam-nx/plugin-fetch-repos": ["plugin/fetch-repos/src/index.ts"],
+      "@afuteam-nx/plugin-add-eslint-type": [
+        "plugin/add-eslint-type/src/index.ts"
+      ],
       "@afuteam-nx/plugin-downloadrepos": ["plugin/downloadrepos/src/index.ts"],
-      "@afuteam-nx/plugin-add-eslint-type": ["plugin/add-eslint-type/src/index.ts"],
       "@afuteam-nx/plugin-exec-eslint": ["plugin/exec-eslint/src/index.ts"],
-      "@afuteam-nx/plugin-upload-filecontent2wiki": ["plugin/upload-filecontent2wiki/src/index.ts"]
+      "@afuteam-nx/plugin-fetch-repos": ["plugin/fetch-repos/src/index.ts"],
+      "@afuteam-nx/plugin-pick-keyinfo-from-file-base-repos": [
+        "plugin/pick-keyinfo-from-file-base-repos/src/index.ts"
+      ],
+      "@afuteam-nx/plugin-upload-filecontent2wiki": [
+        "plugin/upload-filecontent2wiki/src/index.ts"
+      ]
     }
   },
   "exclude": ["node_modules", "tmp"]
