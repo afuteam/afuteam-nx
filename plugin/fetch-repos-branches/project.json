@@ -1,0 +1,45 @@
+{
+  "name": "plugin-fetch-repos-branches",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "plugin/fetch-repos-branches/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/plugin/fetch-repos-branches",
+        "main": "plugin/fetch-repos-branches/src/index.ts",
+        "tsConfig": "plugin/fetch-repos-branches/tsconfig.lib.json",
+        "assets": [
+          "plugin/fetch-repos-branches/*.md",
+          {
+            "input": "./plugin/fetch-repos-branches/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/fetch-repos-branches/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/fetch-repos-branches",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./plugin/fetch-repos-branches",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs plugin-fetch-repos-branches {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    }
+  },
+  "tags": []
+}

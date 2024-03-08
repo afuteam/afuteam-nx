@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "Run executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "accessToken": {"type": "string"},
+    "localFileRepoListPath": {"type": "string"},
+    "resultPath": {"type": "string"},
+    "gitLabBaseUrl": {"type": "number"},
+    "per_page": {"type": "number"}
+  },
+  "required": [
+    "accessToken",
+    "localFileRepoListPath",
+    "resultPath",
+    "gitLabBaseUrl"
+  ]
+}

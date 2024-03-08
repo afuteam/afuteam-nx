@@ -1,0 +1,13 @@
+{
+  "name": "@afuteam-nx/plugin-fetch-repos-branches",
+  "version": "0.0.1",
+  "dependencies": {
+    "@nx/devkit": "18.0.5",
+    "tslib": "^2.3.0"
+  },
+  "keywords": ["@afuteam/nx", "nx", "nx/plugins", "@afuteam", "branches"],
+  "type": "commonjs",
+  "main": "./src/index.js",
+  "typings": "./src/index.d.ts",
+  "executors": "./executors.json"
+}
