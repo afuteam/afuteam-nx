@@ -1,0 +1,45 @@
+{
+  "name": "plugin-code-complexity",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "plugin/code-complexity/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/plugin/code-complexity",
+        "main": "plugin/code-complexity/src/index.ts",
+        "tsConfig": "plugin/code-complexity/tsconfig.lib.json",
+        "assets": [
+          "plugin/code-complexity/*.md",
+          {
+            "input": "./plugin/code-complexity/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/code-complexity/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/code-complexity",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./plugin/code-complexity",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs plugin-code-complexity {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    }
+  },
+  "tags": []
+}

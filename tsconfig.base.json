@@ -18,6 +18,9 @@
       "@afuteam-nx/plugin-add-eslint-type": [
         "plugin/add-eslint-type/src/index.ts"
       ],
+      "@afuteam-nx/plugin-code-complexity": [
+        "plugin/code-complexity/src/index.ts"
+      ],
       "@afuteam-nx/plugin-downloadrepos": ["plugin/downloadrepos/src/index.ts"],
       "@afuteam-nx/plugin-exec-eslint": ["plugin/exec-eslint/src/index.ts"],
       "@afuteam-nx/plugin-fetch-repos": ["plugin/fetch-repos/src/index.ts"],

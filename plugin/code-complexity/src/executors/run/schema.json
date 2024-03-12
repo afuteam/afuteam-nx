@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "version": 2,
+  "title": "Run executor",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "localFileReposWithAFULintTypePath": {"type": "string"},
+    "localFilesAllReposCodePath": {"type": "string"},
+    "resultPath": {"type": "string"}
+  },
+  "required": [
+    "localFileReposWithAFULintTypePath",
+    "localFilesAllReposCodePath",
+    "resultPath"
+  ]
+}

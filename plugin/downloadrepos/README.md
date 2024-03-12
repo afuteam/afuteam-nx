@@ -38,7 +38,7 @@ nx run your-app:downloadrepos
 // allProjects.json
 [
   {
-    "http_url_to_repo": "",
+    "ssh_url_to_repo": "",
     "name": "plugins",
     "default_branch": "master",
     // ... 其他项目信息

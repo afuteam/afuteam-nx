@@ -24,7 +24,7 @@ export default async function runExecutor(options: RunExecutorSchema) {
     let currentIndex = 0; // 初始化索引计数器
     const allLength = repositories.length;
     for (const repositoryInfo of repositories) {
-      const { http_url_to_repo, name, default_branch } = repositoryInfo;
+      const { ssh_url_to_repo, name, default_branch } = repositoryInfo;
       console.log(
         `处理进度 ${currentIndex + 1}/${allLength} ：${
           repositoryInfo.name
@@ -32,9 +32,9 @@ export default async function runExecutor(options: RunExecutorSchema) {
       );
 
       // 有 空项目情况
-      if (!default_branch || !http_url_to_repo) {
+      if (!default_branch || !ssh_url_to_repo) {
         console.log(
-          `跳过 ${name}，默认分支: ${default_branch}； http_url_to_repo地址是${http_url_to_repo}`
+          `跳过 ${name}，默认分支: ${default_branch}； ssh_url_to_repo地址是${ssh_url_to_repo}`
         );
         failedRepositories.push(repositoryInfo);
         currentIndex++;
@@ -44,30 +44,30 @@ export default async function runExecutor(options: RunExecutorSchema) {
       const repositoryPath = path.join(localFilesDownLoadPath, name);
 
       if (!fs.existsSync(repositoryPath)) {
-        console.log(`Cloning repository ${http_url_to_repo}...`);
+        console.log(`Cloning repository ${ssh_url_to_repo}...`);
         try {
-          execSync(`git clone ${http_url_to_repo} ${repositoryPath}`);
-          console.log(`Repository ${http_url_to_repo} cloned successfully. \n`);
+          execSync(`git clone ${ssh_url_to_repo} ${repositoryPath}`);
+          console.log(`Repository ${ssh_url_to_repo} cloned successfully. \n`);
           successRepositories.push(repositoryInfo);
         } catch (error) {
           console.error(
-            `Error cloning repository ${http_url_to_repo}:`,
+            `Error cloning repository ${ssh_url_to_repo}:`,
             error.message
           );
           failedRepositories.push(repositoryInfo);
           continue;
         }
       } else {
-        console.log(`Updating repository ${http_url_to_repo}...`);
+        console.log(`Updating repository ${ssh_url_to_repo}...`);
         try {
           execSync(`git -C ${repositoryPath} pull`);
           console.log(
-            `Repository ${http_url_to_repo} updated successfully. \n`
+            `Repository ${ssh_url_to_repo} updated successfully. \n`
           );
           successRepositories.push(repositoryInfo);
         } catch (error) {
           console.error(
-            `Error updating repository ${http_url_to_repo}:`,
+            `Error updating repository ${ssh_url_to_repo}:`,
             error.message
           );
           failedRepositories.push(repositoryInfo);
@@ -84,7 +84,7 @@ export default async function runExecutor(options: RunExecutorSchema) {
     if (failedRepositories.length > 0) {
       console.log('失败的项目列表：');
       failedRepositories.forEach((repositoryInfo) => {
-        console.log(`${repositoryInfo.http_url_to_repo}\n`);
+        console.log(`${repositoryInfo.ssh_url_to_repo}\n`);
       });
     }
   }

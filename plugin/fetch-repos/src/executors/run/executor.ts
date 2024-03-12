@@ -166,7 +166,7 @@ export default async function runExecutor(options: RunExecutorSchema) {
         (item) => !ignoreProjectsIds.includes(item.id)
       );
 
-      console.log(`\n${new Date()} \n当前使用的token是 ${accessToken}\n`);
+      console.log(`\n${new Date()} \n当前使用的token是 ${accessToken}\n 共有项目 ${filteredResult.length} 个`);
 
       Tools.writeRes2SomePath('allProjects.json', filteredResult, resultPath);
 
