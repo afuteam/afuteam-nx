@@ -147,6 +147,7 @@ export default async function runExecutor(options: RunExecutorSchema) {
       let projectLintData = lintProject(project);
       const { id, created_at, last_activity_at, name, web_url } = project;
 
+      // @ts-ignore
       const { complexityDataLength, complexityData } = projectLintData[name];
 
       projectLintData = {
