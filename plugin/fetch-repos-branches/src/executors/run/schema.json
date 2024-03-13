@@ -8,7 +8,7 @@
     "accessToken": {"type": "string"},
     "localFileRepoListPath": {"type": "string"},
     "resultPath": {"type": "string"},
-    "gitLabBaseUrl": {"type": "number"},
+    "gitLabBaseUrl": {"type": "string"},
     "per_page": {"type": "number"}
   },
   "required": [
