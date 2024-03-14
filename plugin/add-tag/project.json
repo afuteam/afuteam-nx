@@ -1,0 +1,45 @@
+{
+  "name": "plugin-add-tag",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "plugin/add-tag/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/plugin/add-tag",
+        "main": "plugin/add-tag/src/index.ts",
+        "tsConfig": "plugin/add-tag/tsconfig.lib.json",
+        "assets": [
+          "plugin/add-tag/*.md",
+          {
+            "input": "./plugin/add-tag/src",
+            "glob": "**/!(*.ts)",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/add-tag/src",
+            "glob": "**/*.d.ts",
+            "output": "./src"
+          },
+          {
+            "input": "./plugin/add-tag",
+            "glob": "generators.json",
+            "output": "."
+          },
+          {
+            "input": "./plugin/add-tag",
+            "glob": "executors.json",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "publish": {
+      "command": "node tools/scripts/publish.mjs plugin-add-tag {args.ver} {args.tag}",
+      "dependsOn": ["build"]
+    }
+  },
+  "tags": []
+}
