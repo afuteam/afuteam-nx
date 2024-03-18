@@ -1,7 +1,7 @@
 # plugin-exec-eslint
 
 对代码仓库执行代码质量检查，支持批量项目。
-输出结果包含仓库的 `eslint错误数` `空行数` `代码行数` `注释行数`
+输出结果包含仓库的 `eslint错误数` `空行数` `代码行数` `注释行数` `复杂度统计(不包含switchcase类型)`
 
 
 ## 环境
@@ -10,6 +10,8 @@
 本插件的输入文件建议使用 [@afuteam-nx/plugin-add-eslint-type](https://www.npmjs.com/package/@afuteam-nx/plugin-add-eslint-type)生成的文件
 
 本插件受益于 [@afuteam/eslint-plugin-fe](https://www.npmjs.com/package/@afuteam/eslint-plugin-fe) 提供代码 `eslint` 规则
+
+关于复杂度，使用了自定义的规则，过滤了 `switch case` 类型的统计
 
 ## 安装
 
@@ -66,6 +68,7 @@ nx run your-app:exec-eslint
       "blankLines": 589,
       "commentLines": 378,
       "codeLines": 21295,
+      "complexityDataLength": 152,
       "created_at": "2023-11-21T15:23:21.637+08:00",
       "last_activity_at": "2024-03-04T20:41:10.727+08:00",
       "id": 28669,
